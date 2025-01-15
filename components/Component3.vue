@@ -22,24 +22,15 @@
 
 <script lang="ts">
 
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { useBasketStore } from '../stores/basketStore'; // Import the Pinia store
 import { formatPrice } from '../utils/helpers'; // Import the helper function
+import { firestore } from '../firebase'; // Import the initialized Firestore instance
 
 // Firebase configuration
-const firebaseConfig = {
-  aapiKey: "AIzaSyBqHNZ0xf0K8K_TNmfSvBdJ-shmRf3gff4",
-  authDomain: "kacara-97fe9.firebaseapp.com",
-  projectId: "kacara-97fe9",
-  storageBucket: "kacara-97fe9.firebasestorage.app",
-  messagingSenderId: "369822689187",
-  appId: "1:369822689187:web:311ac523ec23ac3cdf9c16"
-};
+
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
 
 interface Product {
   id: string;

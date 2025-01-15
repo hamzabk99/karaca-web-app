@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "moduleResolution": "node", // Ensure this is set to 'node'
+    "paths": {
+      "@/*": ["./src/*"] // Add this if you're using path aliases
+    }
+  },
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "noImplicitAny": false

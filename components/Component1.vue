@@ -1,92 +1,99 @@
 <template>
-    <header class="header">
-      <div class="info-bar">
-        <div class="info-item">
-          <a href="#">Sipariş Takip</a>
-        </div>
-        <div class="info-item">
-          <a href="#">Kolay İade</a>
-        </div>
-        <div class="info-item">
-          <a href="#">Kampanyalar</a>
-        </div>
-        <div class="info-item">
-          <a href="#">Blog</a>
-        </div>
-        <div class="info-item">
-          <a href="#">Yardım</a>
-        </div>
-        <div class="info-item">
-          <a href="#">Destek</a>
-        </div>
+  <header class="header">
+    <div class="info-bar">
+      <div class="info-item">
+        <a href="#">Sipariş Takip</a>
       </div>
-  
-      <div class="top-bar">
-        <div class="logo-container">
-          <img src="https://static.karaca.com/catalog/view/assets/images/logos/karacalogo.svg" alt="Logo" class="logo" />
+      <div class="info-item">
+        <a href="#">Kolay İade</a>
+      </div>
+      <div class="info-item">
+        <a href="#">Kampanyalar</a>
+      </div>
+      <div class="info-item">
+        <a href="#">Blog</a>
+      </div>
+      <div class="info-item">
+        <a href="#">Yardım</a>
+      </div>
+      <div class="info-item">
+        <a href="#">Destek</a>
+      </div>
+    </div>
+
+    <div class="top-bar">
+      <div class="logo-container">
+        <img src="https://static.karaca.com/catalog/view/assets/images/logos/karacalogo.svg" alt="Logo" class="logo" />
+      </div>
+      <div class="search-container">
+        <input 
+          type="text" 
+          class="search-bar" 
+          placeholder="Search for products, categories, or brands..." 
+        />
+      </div>
+      <div class="account-cart">
+        <div class="dropdown">
+          <button class="dropdown-btn">Hesabım</button>
+          <div class="dropdown-content">
+            <a href="#" @click="handleGirisYap">Giriş Yap</a>
+            <a href="#">Üye Ol</a>
+            <a href="#">Siparişlerim</a>
+          </div>
         </div>
-        <div class="search-container">
-          <input 
-            type="text" 
-            class="search-bar" 
-            placeholder="Search for products, categories, or brands..." 
-          />
-        </div>
-        <div class="account-cart">
-          
+        <button class="dropdown-btn" @click="handleSepet">Sepet</button>
+      </div>
+    </div>
+    <nav class="category-nav">
+      <ul class="category-list">
+        <li v-for="(category, index) in categories" :key="index" class="category-item">
           <div class="dropdown">
-            <button class="dropdown-btn">Hesabım</button>
+            <button class="dropdown-btn">{{ category.name }}</button>
             <div class="dropdown-content">
-              <a href="#">Giriş Yap</a>
-              <a href="#">Üye Ol</a>
-              <a href="#">Siparişlerim</a>
+              <a v-for="(item, idx) in category.items" :key="idx" href="#" @click="handleGida">{{ item }}</a>
             </div>
           </div>
-          
-          
-          <button class="dropdown-btn">Sepet</button>
-        </div>
-      </div>
-      <nav class="category-nav">
-        <ul class="category-list">
-          <li v-for="(category, index) in categories" :key="index" class="category-item">
-            <div class="dropdown">
-              <button class="dropdown-btn">{{ category.name }}</button>
-              <div class="dropdown-content">
-                <a v-for="(item, idx) in category.items" :key="idx" href="#">{{ item }}</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  </template>
-  
-  
-  <script lang="ts">
-  import { defineComponent } from "vue";
-  
-  export default defineComponent({
-    name: "EcommerceHeader",
-    data() {
-      return {
-        categories: [
-          { name: "Sofra", items: ["Yemek Takımları", "Sofra Servis", "Servis Sunum"] },
-          { name: "Mutfak", items: ["Pişirme", "İçecek Hazırlama", "Mutfak Gereçleri"] },
-          { name: "Küçük Ev Aletleri", items: ["Elektrikli Ev Aletleri", "Elektrikli Süpürgeler", "Gıda Hazırlama"] },
-          { name: "Ev ve Yaşam", items: ["Yatak Odası", "Banyo", "Dekoratif Aksesuarlar"] },
-          { name: "Yılbaşı Ürünleri",  },
-          { name: "Karaca x Müge Anlı",  },
-          { name: "Gıda", items: ["Kahveler", "Yağlar", "Atıştırmalıklar"] },
-          { name: "Çeyiz Seti", items: ["Mutfak Çeyiz Seti", "Yatak Odası Çeyiz Seti", "Banyo Çeyiz Seti"] },
-          { name: "Yeniler", },
-          { name: "Markalar", items: ["Karaca", "Cookplus", "Emsan"] }
-        ]
-      };
-    }
-  });
-  </script>
-  
+        </li>
+      </ul>
+    </nav>
+  </header>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "EcommerceHeader",
+  data() {
+    return {
+      categories: [
+        { name: "Sofra", items: ["Yemek Takımları", "Sofra Servis", "Servis Sunum"] },
+        { name: "Mutfak", items: ["Pişirme", "İçecek Hazırlama", "Mutfak Gereçleri"] },
+        { name: "Küçük Ev Aletleri", items: ["Elektrikli Ev Aletleri", "Elektrikli Süpürgeler", "Gıda Hazırlama"] },
+        { name: "Ev ve Yaşam", items: ["Yatak Odası", "Banyo", "Dekoratif Aksesuarlar"] },
+        { name: "Yılbaşı Ürünleri" },
+        { name: "Karaca x Müge Anlı" },
+        { name: "Gıda", items: ["Kahveler", "Yağlar", "Atıştırmalıklar"] },
+        { name: "Çeyiz Seti", items: ["Mutfak Çeyiz Seti", "Yatak Odası Çeyiz Seti", "Banyo Çeyiz Seti"] },
+        { name: "Yeniler" },
+        { name: "Markalar", items: ["Karaca", "Cookplus", "Emsan"] }
+      ]
+    };
+  },
+  methods: {
+    handleSepet() {
+      this.$emit("update-middle-component", "Component11");
+    },
+    handleGirisYap() {
+      this.$emit("update-middle-component", "Component4");
+    },
+    handleGida() {
+      this.$emit("update-middle-component", "Component3");
+    },
+  },
+});
+</script>
+
   <style scoped>
   .header {
     display: flex;
