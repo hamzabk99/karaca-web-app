@@ -29,6 +29,7 @@
   import Component8 from "~/components/Component8.vue";
   import Component9 from "~/components/Component9.vue";
   import Component10 from "~/components/Component10.vue";
+  import Component11 from "~/components/Component11.vue";
   
   export default {
     data() {
@@ -44,6 +45,7 @@
           { name: "Component8", label: "Component 8" },
           { name: "Component9", label: "Component 9" },
           { name: "Component10", label: "Component 10" },
+          { name: "Component11", label: "Component 11" },
         ],
         currentComponent: "Component1", // Default to the first component
       };
@@ -59,6 +61,7 @@
       Component8,
       Component9,
       Component10,
+      Component11,      
     },
   };
   </script>
