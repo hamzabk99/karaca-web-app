@@ -12,7 +12,7 @@
           <img :src="item.product.image" alt="item.product.name" class="basket-image" />
           <div class="basket-info">
             <h3>{{ item.product.name }}</h3>
-            <p>16-19 Ocak tarihleri arasında kargoda</p>
+            <p>21-24 Ocak tarihleri arasında kargoda</p>
           </div>
           <div class="quantity-controls">
             <button @click="decreaseQuantity(index)">-</button>

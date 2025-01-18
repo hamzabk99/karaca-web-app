@@ -23,12 +23,9 @@
 <script lang="ts">
 
 import { collection, getDocs } from 'firebase/firestore';
-import { useBasketStore } from '../stores/basketStore'; // Import the Pinia store
-import { formatPrice } from '../utils/helpers'; // Import the helper function
-import { firestore } from '../firebase'; // Import the initialized Firestore instance
-
-// Firebase configuration
-
+import { useBasketStore } from '../stores/basketStore'; 
+import { formatPrice } from '../utils/helpers'; 
+import { firestore } from '../firebase'; 
 
 // Initialize Firebase
 

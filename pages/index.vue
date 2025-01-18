@@ -21,7 +21,7 @@
       <!-- Display components in a specific order when "ALL" is clicked -->
       <div v-if="showAll">
         <Component1 @update-middle-component="updateMiddleComponent" />
-        <component :is="middleComponent" />
+        <component :is="middleComponent" @update-middle-component="updateMiddleComponent" />
         <Component2 @update-middle-component="updateMiddleComponent" />
       </div>
     </main>
@@ -33,11 +33,11 @@ import Component1 from "~/components/Component1.vue";
 import Component2 from "~/components/Component2.vue";
 import Component3 from "~/components/Component3.vue";
 import Component4 from "~/components/Component4.vue";
-import Component5 from "~/components/Component5.vue"; // Import Component5
+import Component5 from "~/components/Component5.vue";
 import Component6 from "~/components/Component6.vue";
 import Component7 from "~/components/Component7.vue";
 import Component8 from "~/components/Component8.vue";
-import Component9 from "~/components/Component9.vue"; // Import Component9
+import Component9 from "~/components/Component9.vue";
 import Component10 from "~/components/Component10.vue";
 import Component11 from "~/components/Component11.vue";
 
@@ -49,11 +49,11 @@ export default {
         { name: "Component2", label: "Component 2" },
         { name: "Component3", label: "Component 3" },
         { name: "Component4", label: "Component 4" },
-        { name: "Component5", label: "Component 5" }, // Add Component5
+        { name: "Component5", label: "Component 5" },
         { name: "Component6", label: "Component 6" },
         { name: "Component7", label: "Component 7" },
         { name: "Component8", label: "Component 8" },
-        { name: "Component9", label: "Component 9" }, // Add Component9
+        { name: "Component9", label: "Component 9" },
         { name: "Component10", label: "Component 10" },
         { name: "Component11", label: "Component 11" },
       ],
@@ -67,11 +67,11 @@ export default {
     Component2,
     Component3,
     Component4,
-    Component5, // Register Component5
+    Component5,
     Component6,
     Component7,
     Component8,
-    Component9, // Register Component9
+    Component9,
     Component10,
     Component11,
   },
